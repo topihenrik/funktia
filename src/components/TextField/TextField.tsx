@@ -67,14 +67,15 @@ export function TextField({
     ...props
 }: TextFieldProps) {
     const { textField, textInput } = style();
-    const [innerValue, setInnerValue] = useState("");
+    const [innerValue, setInnerValue] = useState(value);
 
-    useEffect(() => {
-        setInnerValue(value);
-    }, [value]);
+    const onChange = (nextValue: string) => {
+        setInnerValue(nextValue);
+        if (props.onChange) props.onChange(nextValue);
+    }
 
     return (
-        <ReactAriaTextField {...props} className={textField({ disabled: isDisabled })} onChange={setInnerValue}>
+        <ReactAriaTextField {...props} className={textField({ disabled: isDisabled })} onChange={onChange}>
             <ReactAriaLabel>{label}</ReactAriaLabel>
             <div className="relative flex items-center">
                 {startIcon && <Icon className="absolute left-2" name={startIcon} color="black" />}
