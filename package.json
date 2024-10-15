@@ -1,6 +1,6 @@
 {
     "name": "@topihenrik/funktia",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "type": "module",
     "files": [
         "dist"
@@ -66,8 +66,5 @@
         "extends": [
             "plugin:storybook/recommended"
         ]
-    },
-    "publishConfig": {
-        "@topihenrik:registry": "https://npm.pkg.github.com"
     }
 }
