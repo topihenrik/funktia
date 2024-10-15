@@ -3,7 +3,7 @@ import { mergeConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 
 const config: StorybookConfig = {
-    stories: ["../src/stories/**/*.mdx", "../src/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+    stories: ["../src/components/**/*.mdx", "../src/components/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
     addons: [
         "@storybook/addon-onboarding",
         "@storybook/addon-links",
