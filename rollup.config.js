@@ -22,14 +22,22 @@ export default [
             commonjs(),
             typescript(),
             svgr(),
-            postcss({
-                extensions: ['.css']
-            })
         ]
     },
     {
         input: "src/index.ts",
         output: [{ file: "dist/index.d.ts", format: "esm" }],
         plugins: [dts()],
+        external: [/\.css$/],
+    },
+    {
+        input: "src/globals.css",
+        output: [{ file: "dist/index.css", format: "esm" }],
+        plugins: [
+            postcss({
+                extract: true,
+                minimize: true,
+            }),
+        ],
     },
 ];
