@@ -5,6 +5,7 @@ export * from "./Heading";
 export * from "./Icon";
 export * from "./InlineAlert";
 export * from "./Link";
+export * from "./Modal";
 export * from "./SideNav";
 export * from "./Spinner";
 export * from "./Text";
