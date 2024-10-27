@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 import { Icon } from "../Icon";
 
-const style = tv({
+const inlineAlertStyle = tv({
     base: ["flex gap-4 p-2 rounded"],
     variants: {
         color: {
@@ -35,7 +35,7 @@ interface InlineAlertProps {
 
 export function InlineAlert({ color = "info", message }: InlineAlertProps) {
     return (
-        <div className={style({ color })}>
+        <div className={inlineAlertStyle({ color })}>
             {getIcon(color)}
             {message}
         </div>

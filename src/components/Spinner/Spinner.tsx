@@ -1,28 +1,18 @@
 import { tv } from "tailwind-variants";
 import SpinnerIcon from "../../icons/spinner.svg";
 
-const style = tv({
-    slots: {
-        wrapper: "h-6 w-6",
-        svg: ""
-    },
+const wrapperStyle = tv({
+    base: ["h-6 w-6"]
+});
+
+const svgStyle = tv({
     variants: {
         color: {
-            primary: {
-                svg: "stroke-white"
-            },
-            secondary: {
-                svg: "stroke-blue-800"
-            },
-            success: {
-                svg: "stroke-white"
-            },
-            warning: {
-                svg: "stroke-white"
-            },
-            error: {
-                svg: "stroke-white"
-            }
+            primary: "stroke-white",
+            secondary: "stroke-blue-800",
+            success: "stroke-white",
+            warning: "stroke-white",
+            error: "stroke-white"
         }
     }
 });
@@ -38,11 +28,10 @@ interface SpinnerProps {
     color?: "primary" | "secondary" | "success" | "warning" | "error";
 }
 
-export function Spinner({ className, color }: SpinnerProps) {
-    const { wrapper, svg } = style({ color });
+export function Spinner({ color }: SpinnerProps) {
     return (
-        <div className={wrapper({ class: className })}>
-            <SpinnerIcon className={svg()} width="100%" height="100%" />
+        <div className={wrapperStyle()}>
+            <SpinnerIcon className={svgStyle({ color })} width="100%" height="100%" />
         </div>
     );
 }

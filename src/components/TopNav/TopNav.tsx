@@ -3,12 +3,12 @@ import { tv } from "tailwind-variants";
 
 const defaultItems = [<div key={Math.random()} />];
 
-const style = tv({
-    slots: {
-        nav: "flex justify-between border-b-2 p-2",
-        ul: "flex items-center gap-2",
-        li: ""
-    }
+const navStyle = tv({
+    base: ["flex justify-between border-b-2 p-2"]
+});
+
+const ulStyle = tv({
+    base: ["flex items-center gap-2"]
 });
 
 interface TopNavProps {
@@ -17,21 +17,16 @@ interface TopNavProps {
 }
 
 export function TopNav({ rightItems = defaultItems, leftItems = defaultItems }: TopNavProps) {
-    const { nav, ul, li } = style();
     return (
-        <nav className={nav()}>
-            <ul className={ul()}>
+        <nav className={navStyle()}>
+            <ul className={ulStyle()}>
                 {rightItems.map((item, i) => (
-                    <li className={li()} key={`ri${i}`}>
-                        {item}
-                    </li>
+                    <li key={`ri${i}`}>{item}</li>
                 ))}
             </ul>
-            <ul className={ul()}>
+            <ul className={ulStyle()}>
                 {leftItems.map((item, i) => (
-                    <li className={li()} key={`li${i}`}>
-                        {item}
-                    </li>
+                    <li key={`li${i}`}>{item}</li>
                 ))}
             </ul>
         </nav>

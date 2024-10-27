@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
-const style = tv({
-    base: "text-blue-600 hover:underline focus:outline-blue-600"
+const linkStyle = tv({
+    base: ["text-blue-600 hover:underline focus:outline-blue-600"]
 });
 
 interface LinkProps {
@@ -21,7 +21,7 @@ interface LinkProps {
 
 export function Link({ children, className, ...props }: LinkProps) {
     return (
-        <a {...props} className={style({ class: className })}>
+        <a {...props} className={linkStyle({ class: className })}>
             {children}
         </a>
     );

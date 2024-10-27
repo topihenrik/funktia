@@ -8,7 +8,7 @@ import {
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 const textFieldStyle = tv({
-    base: "flex flex-col"
+    base: ["flex flex-col"]
 });
 
 const textAreaStyle = tv({

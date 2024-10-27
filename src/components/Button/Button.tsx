@@ -5,7 +5,7 @@ import { Spinner } from "../Spinner";
 import { icons } from "lucide-react";
 import { Icon } from "../Icon";
 
-const style = tv({
+const buttonStyle = tv({
     base: [
         "flex justify-center gap-3 items-center font-bold capitalize py-2 px-4 rounded subpixel-antialiased select-none",
         "hover:shadow-md active:opacity-90 pressed:scale-[1.01] transition-transform"
@@ -76,7 +76,7 @@ export function Button({
             {...props}
             type={type}
             isDisabled={isDisabled}
-            className={style({
+            className={buttonStyle({
                 color,
                 disabled: isDisabled,
                 loading: isLoading,

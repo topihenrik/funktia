@@ -11,21 +11,24 @@ import { useState } from "react";
 import { Icon } from "../Icon";
 import { icons } from "lucide-react";
 
-const style = tv({
-    slots: {
-        textField: "flex flex-col relative gap-1",
-        textInput: [
-            "min-w-36 flex grow border-2 border-gray-500 rounded-md p-2 text-black",
-            "focus:outline-blue-600 hover:border-gray-950",
-            "data-[has-start-icon=true]:pl-10 data-[has-end-icon=true]:pr-10"
-        ]
-    },
+const textFieldStyle = tv({
+    base: ["flex flex-col relative gap-1"],
     variants: {
         disabled: {
-            true: {
-                textField: "text-gray-500 opacity-50",
-                textInput: "border-gray-500 text-gray-500 hover:border-gray-500 cursor-not-allowed"
-            }
+            true: "text-gray-500 opacity-50"
+        }
+    }
+});
+
+const textInputStyle = tv({
+    base: [
+        "min-w-36 flex grow border-2 border-gray-500 rounded-md p-2 text-black",
+        "focus:outline-blue-600 hover:border-gray-950",
+        "data-[has-start-icon=true]:pl-10 data-[has-end-icon=true]:pr-10"
+    ],
+    variants: {
+        disabled: {
+            true: "border-gray-500 text-gray-500 hover:border-gray-500 cursor-not-allowed"
         }
     }
 });
@@ -65,7 +68,6 @@ export function TextField({
     endIcon,
     ...props
 }: TextFieldProps) {
-    const { textField, textInput } = style();
     const [innerValue, setInnerValue] = useState(value);
 
     const onChange = (nextValue: string) => {
@@ -74,7 +76,7 @@ export function TextField({
     };
 
     return (
-        <ReactAriaTextField {...props} className={textField({ disabled: isDisabled })} onChange={onChange}>
+        <ReactAriaTextField {...props} className={textFieldStyle({ disabled: isDisabled })} onChange={onChange}>
             <ReactAriaLabel>{label}</ReactAriaLabel>
             <div className="relative flex items-center">
                 {startIcon && <Icon className="absolute left-2" name={startIcon} color="black" />}
@@ -83,7 +85,7 @@ export function TextField({
                     value={innerValue}
                     name={name}
                     type={type}
-                    className={textInput({ disabled: isDisabled })}
+                    className={textInputStyle({ disabled: isDisabled })}
                     data-has-start-icon={startIcon ? "true" : "false"}
                     data-has-end-icon={endIcon ? "true" : "false"}
                 />
