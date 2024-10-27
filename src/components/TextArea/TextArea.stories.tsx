@@ -18,3 +18,10 @@ export const Default: Story = {
         label: "Label"
     }
 };
+
+export const Disabled: Story = {
+    args: {
+        label: "Disabled",
+        isDisabled: true
+    }
+};

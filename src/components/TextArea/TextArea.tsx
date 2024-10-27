@@ -8,14 +8,24 @@ import {
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 const textFieldStyle = tv({
-    base: ["flex flex-col"]
+    base: ["flex flex-col"],
+    variants: {
+        disabled: {
+            true: "text-gray-500 opacity-50"
+        }
+    }
 });
 
 const textAreaStyle = tv({
     base: [
         "flex flex-col grow border-2 border-gray-500 rounded-md p-2 text-black resize-none",
         "focus:outline-blue-600 hover:border-gray-950"
-    ]
+    ],
+    variants: {
+        disabled: {
+            true: "border-gray-500 text-gray-500 hover:border-gray-500 cursor-not-allowed"
+        }
+    }
 });
 
 interface TextAreaProps extends ReactAriaTextFieldProps {
@@ -29,7 +39,7 @@ interface TextAreaProps extends ReactAriaTextFieldProps {
     className?: string;
 }
 
-export function TextArea({ label, value = "", ...props }: TextAreaProps) {
+export function TextArea({ label, value = "", isDisabled = false, ...props }: TextAreaProps) {
     const [innerValue, setInnerValue] = useState(value);
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -54,9 +64,17 @@ export function TextArea({ label, value = "", ...props }: TextAreaProps) {
     }, [onHeightChange, innerValue, textAreaRef]);
 
     return (
-        <ReactAriaTextField className={textFieldStyle} onChange={onChange}>
+        <ReactAriaTextField
+            className={textFieldStyle({ disabled: isDisabled })}
+            onChange={onChange}
+            isDisabled={isDisabled}
+        >
             <ReactAriaLabel>{label}</ReactAriaLabel>
-            <ReactAriaTextArea ref={textAreaRef} className={textAreaStyle} value={innerValue} />
+            <ReactAriaTextArea
+                ref={textAreaRef}
+                className={textAreaStyle({ disabled: isDisabled })}
+                value={innerValue}
+            />
         </ReactAriaTextField>
     );
 }
