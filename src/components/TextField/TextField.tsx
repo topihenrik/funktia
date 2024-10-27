@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
     TextField as ReactAriaTextField,
     TextFieldProps as ReactAriaTextFieldProps,
@@ -72,7 +71,7 @@ export function TextField({
     const onChange = (nextValue: string) => {
         setInnerValue(nextValue);
         if (props.onChange) props.onChange(nextValue);
-    }
+    };
 
     return (
         <ReactAriaTextField {...props} className={textField({ disabled: isDisabled })} onChange={onChange}>

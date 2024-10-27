@@ -37,7 +37,7 @@ interface ButtonProps extends ReactAriaButtonProps {
     /**
      * Dictates the color scheme of the element
      */
-    color: "primary" | "secondary" | "success" | "warning" | "error";
+    color?: "primary" | "secondary" | "success" | "warning" | "error";
     /**
      * Text children of the component.
      */
@@ -65,7 +65,7 @@ export function Button({
     className,
     type,
     isDisabled,
-    color,
+    color = "primary",
     isLoading,
     startIcon,
     endIcon,
