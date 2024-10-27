@@ -11,24 +11,18 @@ export default [
         input: "src/index.ts",
         output: [
             {
-                file: 'dist/index.js',
+                file: "dist/index.js",
                 format: "esm",
                 sourcemap: true
-            },
+            }
         ],
-        plugins: [
-            peerDepsExternal(),
-            resolve(),
-            commonjs(),
-            typescript(),
-            svgr(),
-        ]
+        plugins: [peerDepsExternal(), resolve(), commonjs(), typescript(), svgr()]
     },
     {
         input: "src/index.ts",
         output: [{ file: "dist/index.d.ts", format: "esm" }],
         plugins: [dts()],
-        external: [/\.css$/],
+        external: [/\.css$/]
     },
     {
         input: "src/globals.css",
@@ -36,8 +30,8 @@ export default [
         plugins: [
             postcss({
                 extract: true,
-                minimize: true,
-            }),
-        ],
-    },
+                minimize: true
+            })
+        ]
+    }
 ];
