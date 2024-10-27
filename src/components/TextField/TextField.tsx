@@ -76,7 +76,12 @@ export function TextField({
     };
 
     return (
-        <ReactAriaTextField {...props} className={textFieldStyle({ disabled: isDisabled })} onChange={onChange}>
+        <ReactAriaTextField
+            {...props}
+            className={textFieldStyle({ disabled: isDisabled })}
+            isDisabled={isDisabled}
+            onChange={onChange}
+        >
             <ReactAriaLabel>{label}</ReactAriaLabel>
             <div className="relative flex items-center">
                 {startIcon && <Icon className="absolute left-2" name={startIcon} color="black" />}
