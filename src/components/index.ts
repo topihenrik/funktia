@@ -9,5 +9,6 @@ export * from "./Modal";
 export * from "./SideNav";
 export * from "./Spinner";
 export * from "./Text";
+export * from "./TextArea";
 export * from "./TextField";
 export * from "./TopNav";
