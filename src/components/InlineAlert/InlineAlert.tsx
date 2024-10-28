@@ -1,5 +1,5 @@
 import { tv } from "tailwind-variants";
-import { Icon } from "../Icon";
+import { getIcon } from "../../utils/getIcon";
 
 const inlineAlertStyle = tv({
     base: ["flex gap-4 p-2 rounded"],
@@ -12,21 +12,6 @@ const inlineAlertStyle = tv({
         }
     }
 });
-
-function getIcon(color: "info" | "success" | "warning" | "error") {
-    switch (color) {
-        case "info":
-            return <Icon name="Info" />;
-        case "success":
-            return <Icon name="CircleCheck" />;
-        case "warning":
-            return <Icon name="TriangleAlert" />;
-        case "error":
-            return <Icon name="CircleAlert" />;
-        default:
-            return null;
-    }
-}
 
 interface InlineAlertProps {
     color: "info" | "success" | "warning" | "error";

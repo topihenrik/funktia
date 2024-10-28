@@ -9,17 +9,24 @@ const clickElementStyle = tv({
 });
 
 interface ClickElementProps {
-    type: "a" | "button";
+    variant?: "a" | "button";
     className?: string;
-    children: ReactNode | string;
-    icon: keyof typeof icons;
+    children?: ReactNode | string;
+    icon?: keyof typeof icons;
     href?: string;
 }
 
-export function ClickElement({ children, className, icon, type, href = "" }: ClickElementProps) {
-    if (type === "a") {
+export function ClickElement({
+    children,
+    className,
+    icon,
+    variant = "button",
+    href = "",
+    ...props
+}: ClickElementProps) {
+    if (variant === "a") {
         return (
-            <a href={href} className={`${className} ${clickElementStyle()}`}>
+            <a {...props} href={href} className={`${className} ${clickElementStyle()}`}>
                 {icon && <Icon name={icon} />}
                 {children}
             </a>
@@ -27,7 +34,7 @@ export function ClickElement({ children, className, icon, type, href = "" }: Cli
     }
 
     return (
-        <ReactAriaButton className={`${className} ${clickElementStyle()}`}>
+        <ReactAriaButton {...props} className={`${className} ${clickElementStyle()}`}>
             {icon && <Icon name={icon} />}
             {children}
         </ReactAriaButton>

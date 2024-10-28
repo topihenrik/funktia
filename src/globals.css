@@ -15,3 +15,7 @@
         font-family: "Inter", system-ui, sans-serif;
     }
 }
+
+body {
+    overflow: hidden;
+}
