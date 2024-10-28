@@ -60,7 +60,7 @@ export function Toast<T extends ToastContent>({ state, ...props }: ToastProps<T>
                 <div>{getIcon(props.toast.content.color)}</div>
                 <div {...titleProps}>{props.toast.content.element}</div>
             </div>
-            <ClickElement {...closeButtonProps} icon="X" />
+            <ClickElement {...closeButtonProps} variant="button" icon="X" />
         </div>
     );
 }
