@@ -36,6 +36,13 @@ export const Description: Story = {
     }
 };
 
+export const Required: Story = {
+    args: {
+        label: "Lorem ipsum",
+        isRequired: true
+    }
+};
+
 export const Disabled: Story = {
     args: {
         label: "Disabled",

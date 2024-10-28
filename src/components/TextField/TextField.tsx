@@ -1,14 +1,11 @@
-import {
-    TextField as ReactAriaTextField,
-    Label as ReactAriaLabel,
-    Input as ReactAriaInput
-} from "react-aria-components";
+import { TextField as ReactAriaTextField, Input as ReactAriaInput } from "react-aria-components";
 import { AriaTextFieldProps as ReactAriaTextFieldProps } from "@react-types/textfield";
 import { tv } from "tailwind-variants";
 import { Icon } from "../Icon";
 import { icons } from "lucide-react";
 import { FieldError } from "../FieldError/FieldError";
 import { Description } from "../Description/Description";
+import { Label } from "../Label/Label";
 
 const textFieldStyle = tv({
     base: ["flex flex-col relative gap-1"],
@@ -62,7 +59,7 @@ interface TextFieldProps extends ReactAriaTextFieldProps {
 export function TextField({ description, label, startIcon, endIcon, ...props }: TextFieldProps) {
     return (
         <ReactAriaTextField {...props} className={textFieldStyle}>
-            {label && <ReactAriaLabel>{label}</ReactAriaLabel>}
+            {label && <Label isRequired={props.isRequired}>{label}</Label>}
             <div className="relative flex items-center">
                 {startIcon && <Icon className="absolute left-2" name={startIcon} color="black" />}
                 <ReactAriaInput

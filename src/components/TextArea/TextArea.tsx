@@ -2,12 +2,12 @@ import { tv } from "tailwind-variants";
 import {
     TextArea as ReactAriaTextArea,
     TextField as ReactAriaTextField,
-    Label as ReactAriaLabel,
     TextFieldProps as ReactAriaTextFieldProps
 } from "react-aria-components";
 import { useCallback, useLayoutEffect, useRef } from "react";
 import { FieldError } from "../FieldError/FieldError";
 import { Description } from "../Description/Description";
+import { Label } from "../Label/Label";
 
 const textFieldStyle = tv({
     base: ["flex flex-col"],
@@ -70,7 +70,7 @@ export function TextArea({ label, description, ...props }: TextAreaProps) {
 
     return (
         <ReactAriaTextField {...props} className={textFieldStyle}>
-            <ReactAriaLabel>{label}</ReactAriaLabel>
+            {label && <Label isRequired={props.isRequired}>{label}</Label>}
             <ReactAriaTextArea ref={textAreaRef} className={textAreaStyle} />
             {description && <Description>{description}</Description>}
             <FieldError />

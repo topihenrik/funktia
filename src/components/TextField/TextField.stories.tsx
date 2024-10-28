@@ -31,6 +31,15 @@ export const Description: Story = {
     }
 };
 
+export const Required: Story = {
+    args: {
+        label: "Password",
+        type: "password",
+        placeholder: "Password",
+        isRequired: true
+    }
+};
+
 export const Variants: Story = {
     render: () => {
         return (
