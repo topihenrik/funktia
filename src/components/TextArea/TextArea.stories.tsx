@@ -18,7 +18,13 @@ type Story = StoryObj<typeof TextArea>;
 
 export const Default: Story = {
     args: {
+        value: "Lorem ipsum",
         label: "Label"
+    },
+    render: (args) => {
+        const [value, setValue] = useState(args.value);
+
+        return <TextArea {...args} value={value} onChange={setValue} />;
     }
 };
 
@@ -31,10 +37,11 @@ export const Disabled: Story = {
 
 export const Error: Story = {
     args: {
+        value: "Lorem ipsum",
         label: "Error"
     },
     render: (args) => {
-        const [content, setContent] = useState("Lorem ipsum");
+        const [content, setContent] = useState(args.value);
 
         return (
             <Form
