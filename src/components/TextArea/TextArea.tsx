@@ -7,6 +7,7 @@ import {
 } from "react-aria-components";
 import { useCallback, useLayoutEffect, useRef } from "react";
 import { FieldError } from "../FieldError/FieldError";
+import { Description } from "../Description/Description";
 
 const textFieldStyle = tv({
     base: ["flex flex-col"],
@@ -37,16 +38,20 @@ const textAreaStyle = tv({
 
 interface TextAreaProps extends ReactAriaTextFieldProps {
     /**
-     * Label text
+     * Label text.
      */
     label: string;
     /**
      * Additional tailwind styles for the element.
      */
     className?: string;
+    /**
+     * Description text.
+     */
+    description?: string;
 }
 
-export function TextArea({ label, isDisabled = false, ...props }: TextAreaProps) {
+export function TextArea({ label, description, ...props }: TextAreaProps) {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     const onHeightChange = useCallback(() => {
@@ -64,9 +69,10 @@ export function TextArea({ label, isDisabled = false, ...props }: TextAreaProps)
     }, [onHeightChange, props.value, textAreaRef]);
 
     return (
-        <ReactAriaTextField {...props} className={textFieldStyle} isDisabled={isDisabled}>
+        <ReactAriaTextField {...props} className={textFieldStyle}>
             <ReactAriaLabel>{label}</ReactAriaLabel>
             <ReactAriaTextArea ref={textAreaRef} className={textAreaStyle} />
+            {description && <Description>{description}</Description>}
             <FieldError />
         </ReactAriaTextField>
     );

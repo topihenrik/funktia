@@ -28,6 +28,14 @@ export const Default: Story = {
     }
 };
 
+export const Description: Story = {
+    args: {
+        label: "Description",
+        value: "Lorem ipsum",
+        description: "Lorem ipsum"
+    }
+};
+
 export const Disabled: Story = {
     args: {
         label: "Disabled",

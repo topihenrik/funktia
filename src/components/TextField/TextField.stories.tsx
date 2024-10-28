@@ -23,6 +23,14 @@ export const Default: Story = {
     }
 };
 
+export const Description: Story = {
+    args: {
+        label: "Description",
+        placeholder: "Lorem ipsum",
+        description: "Lorem ipsum"
+    }
+};
+
 export const Variants: Story = {
     render: () => {
         return (

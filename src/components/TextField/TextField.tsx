@@ -8,6 +8,7 @@ import { tv } from "tailwind-variants";
 import { Icon } from "../Icon";
 import { icons } from "lucide-react";
 import { FieldError } from "../FieldError/FieldError";
+import { Description } from "../Description/Description";
 
 const textFieldStyle = tv({
     base: ["flex flex-col relative gap-1"],
@@ -52,9 +53,13 @@ interface TextFieldProps extends ReactAriaTextFieldProps {
      * Icon at the end of the button container
      */
     endIcon?: keyof typeof icons;
+    /**
+     * Description text
+     */
+    description?: string;
 }
 
-export function TextField({ label, startIcon, endIcon, ...props }: TextFieldProps) {
+export function TextField({ description, label, startIcon, endIcon, ...props }: TextFieldProps) {
     return (
         <ReactAriaTextField {...props} className={textFieldStyle}>
             {label && <ReactAriaLabel>{label}</ReactAriaLabel>}
@@ -67,6 +72,7 @@ export function TextField({ label, startIcon, endIcon, ...props }: TextFieldProp
                 />
                 {endIcon && <Icon className="absolute right-2" name={endIcon} color="black" />}
             </div>
+            {description && <Description>{description}</Description>}
             <FieldError />
         </ReactAriaTextField>
     );
