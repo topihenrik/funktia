@@ -3,12 +3,16 @@ import { Heading } from "../Heading";
 import { ClickElement } from "../ClickElement";
 import { tv } from "tailwind-variants";
 
-const style = tv({
-    slots: {
-        container: "flex flex-col gap-8 border-r-2 w-64 p-4",
-        ul: "flex flex-col gap-2",
-        clickElement: ["rounded", "hover:bg-blue-100 focus:outline-blue-900"]
-    },
+const containerStyle = tv({
+    base: ["flex flex-col gap-8 border-r-2 w-64 p-4"]
+});
+
+const ulStyle = tv({
+    base: ["flex flex-col gap-2"]
+});
+
+const clickElementStyle = tv({
+    base: ["rounded", "hover:bg-blue-100 focus:outline-blue-900"],
     variants: {
         active: {
             true: {
@@ -31,16 +35,15 @@ interface SideNavProps {
 }
 
 export function SideNav({ title, items }: SideNavProps) {
-    const { clickElement, container, ul } = style();
     return (
-        <div className={container()}>
+        <div className={containerStyle()}>
             <Heading level={2}>{title}</Heading>
             <nav>
-                <ul className={ul()}>
+                <ul className={ulStyle()}>
                     {items.map((item, i) => (
                         <li key={`sn${i}`}>
                             <ClickElement
-                                className={`${clickElement({ active: item.isActive })}`}
+                                className={`${clickElementStyle({ active: item.isActive })}`}
                                 type="a"
                                 icon={item.icon}
                                 href={item.route}

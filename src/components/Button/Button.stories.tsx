@@ -121,19 +121,19 @@ export const Loading: Story = {
                         Loading button
                     </Heading>
                     <div className="grid grid-cols-3 gap-4">
-                        <Button color="primary" isLoading={true}>
+                        <Button color="primary" isPending={true}>
                             Button
                         </Button>
-                        <Button color="secondary" isLoading={true}>
+                        <Button color="secondary" isPending={true}>
                             Button
                         </Button>
-                        <Button color="success" isLoading={true}>
+                        <Button color="success" isPending={true}>
                             Button
                         </Button>
-                        <Button color="warning" isLoading={true}>
+                        <Button color="warning" isPending={true}>
                             Button
                         </Button>
-                        <Button color="error" isLoading={true}>
+                        <Button color="error" isPending={true}>
                             Button
                         </Button>
                     </div>
@@ -143,19 +143,19 @@ export const Loading: Story = {
                         with starIcon and endIcon
                     </Heading>
                     <div className="grid grid-cols-3 gap-4">
-                        <Button color="primary" isLoading={true} startIcon="KeyRound" endIcon="ChevronRight">
+                        <Button color="primary" isPending={true} startIcon="KeyRound" endIcon="ChevronRight">
                             Button
                         </Button>
-                        <Button color="secondary" isLoading={true} startIcon="KeyRound" endIcon="ChevronRight">
+                        <Button color="secondary" isPending={true} startIcon="KeyRound" endIcon="ChevronRight">
                             Button
                         </Button>
-                        <Button color="success" isLoading={true} startIcon="KeyRound" endIcon="ChevronRight">
+                        <Button color="success" isPending={true} startIcon="KeyRound" endIcon="ChevronRight">
                             Button
                         </Button>
-                        <Button color="warning" isLoading={true} startIcon="KeyRound" endIcon="ChevronRight">
+                        <Button color="warning" isPending={true} startIcon="KeyRound" endIcon="ChevronRight">
                             Button
                         </Button>
-                        <Button color="error" isLoading={true} startIcon="KeyRound" endIcon="ChevronRight">
+                        <Button color="error" isPending={true} startIcon="KeyRound" endIcon="ChevronRight">
                             Button
                         </Button>
                     </div>

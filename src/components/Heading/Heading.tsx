@@ -1,7 +1,7 @@
 import { ElementType } from "react";
 import { tv } from "tailwind-variants";
 
-const style = tv({
+const headingStyle = tv({
     variants: {
         level: {
             1: "text-5xl",
@@ -32,7 +32,7 @@ interface HeadingProps {
 export function Heading({ children, className, level = 1, ...props }: HeadingProps) {
     const HeadingElement = `h${level}` as ElementType;
     return (
-        <HeadingElement {...props} className={style({ level: level, class: className })}>
+        <HeadingElement {...props} className={headingStyle({ level: level, class: className })}>
             {children}
         </HeadingElement>
     );

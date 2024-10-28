@@ -24,9 +24,8 @@ export const Variants: Story = {
     render: () => {
         return (
             <div className="flex gap-4">
-                <Link href="/path/1">Link 1</Link>
-                <Link href="/path/2">Link 2</Link>
-                <Link href="/path/3">Link 3</Link>
+                <Link href="/path/1">Link 1: href</Link>
+                <Link onPress={() => alert("mock navigate")}>Link 2: OnPress</Link>
             </div>
         );
     }

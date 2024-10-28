@@ -7,8 +7,10 @@ import {
     ModalOverlayProps
 } from "react-aria-components";
 
-const overlayStyles = tv({
-    base: "fixed top-0 left-0 w-full h-[--visual-viewport-height] isolate z-20 bg-black/[15%] flex items-center justify-center p-4 text-center backdrop-blur-sm",
+const overlayStyle = tv({
+    base: [
+        "fixed top-0 left-0 w-full h-[--visual-viewport-height] isolate z-20 bg-black/[15%] flex items-center justify-center p-4 text-center backdrop-blur-sm"
+    ],
     variants: {
         isEntering: {
             true: "animate-in fade-in duration-200 ease-out"
@@ -19,7 +21,7 @@ const overlayStyles = tv({
     }
 });
 
-const modalStyles = tv({
+const modalStyle = tv({
     base: ["w-full max-w-md max-h-full bg-white text-left align-middle shadow-2xl"],
     variants: {
         isEntering: {
@@ -65,9 +67,9 @@ export function Modal({ children, ...props }: ModalProps) {
             isDismissable
             isOpen={props.isOpen}
             onOpenChange={onOpenChange}
-            className={overlayStyles}
+            className={overlayStyle}
         >
-            <ReactAriaModal className={modalStyles}>
+            <ReactAriaModal className={modalStyle}>
                 <ReactAriaDialog>
                     <div className={dialogBoxStyles()}>{children}</div>
                 </ReactAriaDialog>
