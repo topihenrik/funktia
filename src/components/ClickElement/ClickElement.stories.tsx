@@ -16,10 +16,10 @@ type Story = StoryObj<typeof ClickElement>;
 export const Types: Story = {
     render: () => (
         <div className="flex gap-4">
-            <ClickElement type="button" icon="House">
+            <ClickElement variant="button" icon="House">
                 Button
             </ClickElement>
-            <ClickElement href="#" type="a" icon="House">
+            <ClickElement href="#" variant="link" icon="House">
                 Anchor
             </ClickElement>
         </div>
