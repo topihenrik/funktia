@@ -44,7 +44,7 @@ export function SideNav({ title, items }: SideNavProps) {
                         <li key={`sn${i}`}>
                             <ClickElement
                                 className={`${clickElementStyle({ active: item.isActive })}`}
-                                type="a"
+                                variant="a"
                                 icon={item.icon}
                                 href={item.route}
                             >
