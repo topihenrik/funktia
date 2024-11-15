@@ -105,7 +105,7 @@ export const Disabled: Story = {
                     Warning
                 </Button>
                 <Button color="danger" isDisabled={true}>
-                    Error
+                    Danger
                 </Button>
             </div>
         );

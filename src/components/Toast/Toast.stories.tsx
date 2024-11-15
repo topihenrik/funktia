@@ -41,7 +41,7 @@ export const Default: Story = {
                     color="danger"
                     onPress={() => toastQueue.add({ element: "Account deleted", severity: "danger" })}
                 >
-                    Show error
+                    Show danger
                 </Button>
                 <GlobalToastRegion />
             </div>
