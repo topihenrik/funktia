@@ -31,10 +31,7 @@ export const Default: Story = {
                 >
                     Show success
                 </Button>
-                <Button
-                    color="warning"
-                    onPress={() => toastQueue.add({ element: "Enable 2FA Enable 2FA Enable 2FA", severity: "warning" })}
-                >
+                <Button color="warning" onPress={() => toastQueue.add({ element: "Enable 2FA", severity: "warning" })}>
                     Show warning
                 </Button>
                 <Button
