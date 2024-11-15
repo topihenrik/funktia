@@ -4,15 +4,16 @@ import { ReactNode, useRef } from "react";
 import { ClickElement } from "../ClickElement";
 import { ToastState } from "@react-stately/toast";
 import { getIcon } from "../../utils/getIcon";
+import { Severity } from "../../constants";
 
 const toastStyle = tv({
     base: ["flex items-center gap-4 p-2 rounded w-80 justify-between"],
     variants: {
-        color: {
+        severity: {
             info: ["bg-blue-600 text-white"],
             success: ["bg-green-600 text-white"],
             warning: ["bg-yellow-600 text-white"],
-            error: ["bg-red-600 text-white"]
+            danger: ["bg-red-600 text-white"]
         },
         isEntering: {
             true: "animate-in slide-in-from-bottom duration-300"
@@ -32,20 +33,25 @@ interface ToastProps<T> extends AriaToastProps<T> {
 }
 
 export interface ToastContent {
+    /**
+     * Element to be showcased inside the Toast
+     */
     element: ReactNode;
-    color: "info" | "success" | "warning" | "error";
+    /**
+     * Severity of the toast
+     */
+    severity: Severity;
 }
 
 export function Toast<T extends ToastContent>({ state, ...props }: ToastProps<T>) {
     const ref = useRef<HTMLDivElement>(null);
     const { toastProps, contentProps, titleProps, closeButtonProps } = useToast(props, state, ref);
-    console.log("props.toast.animation", props.toast.animation);
     return (
         <div
             {...toastProps}
             ref={ref}
             className={toastStyle({
-                color: props.toast.content.color,
+                severity: props.toast.content.severity,
                 isEntering: props.toast.animation === "entering",
                 isExiting: props.toast.animation === "exiting"
             })}
@@ -57,7 +63,7 @@ export function Toast<T extends ToastContent>({ state, ...props }: ToastProps<T>
             }}
         >
             <div {...contentProps} className={containerStyle()}>
-                <div>{getIcon(props.toast.content.color)}</div>
+                <div>{getIcon(props.toast.content.severity)}</div>
                 <div {...titleProps}>{props.toast.content.element}</div>
             </div>
             <ClickElement {...closeButtonProps} variant="button" icon="X" />

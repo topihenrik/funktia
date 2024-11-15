@@ -20,7 +20,7 @@ export const Default: Story = {
     render: () => {
         return (
             <div className="w-64">
-                <InlineAlert color="info" message="Informative message" />
+                <InlineAlert severity="info" message="Informative message" />
             </div>
         );
     }
@@ -30,10 +30,10 @@ export const Colors: Story = {
     render: () => {
         return (
             <div className="flex flex-col gap-4 w-64">
-                <InlineAlert color="info" message="Informative message" />
-                <InlineAlert color="success" message="Success message" />
-                <InlineAlert color="warning" message="Warning message" />
-                <InlineAlert color="error" message="Error message" />
+                <InlineAlert severity="info" message="Informative message" />
+                <InlineAlert severity="success" message="Success message" />
+                <InlineAlert severity="warning" message="Warning message" />
+                <InlineAlert severity="danger" message="Danger message" />
             </div>
         );
     }
