@@ -41,6 +41,9 @@ interface TabItem {
 }
 
 interface TabsProps {
+    /**
+     * List of tab items
+     */
     items: TabItem[];
     ["aria-label"]?: string;
 }
