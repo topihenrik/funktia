@@ -4,6 +4,7 @@ import { tv } from "tailwind-variants";
 import { Spinner } from "../Spinner";
 import { icons } from "lucide-react";
 import { Icon } from "../Icon";
+import { Color } from "../../constants";
 
 const buttonStyle = tv({
     base: [
@@ -19,7 +20,7 @@ const buttonStyle = tv({
             ],
             success: ["bg-green-600 text-white", "hover:bg-green-800 focus:outline-green-900"],
             warning: ["bg-yellow-600 text-white", "hover:bg-yellow-700 focus:outline-yellow-800"],
-            error: ["bg-red-600 text-white", "hover:bg-red-800 focus:outline-red-900"]
+            danger: ["bg-red-600 text-white", "hover:bg-red-800 focus:outline-red-900"]
         },
         isDisabled: {
             true: [
@@ -37,7 +38,7 @@ interface ButtonProps extends ReactAriaButtonProps {
     /**
      * Dictates the color scheme of the element
      */
-    color?: "primary" | "secondary" | "success" | "warning" | "error";
+    color?: Color;
     /**
      * Text children of the component.
      */
@@ -56,7 +57,7 @@ interface ButtonProps extends ReactAriaButtonProps {
     endIcon?: keyof typeof icons;
 }
 
-export function Button({ children, className, color = "primary", startIcon, endIcon, ...props }: ButtonProps) {
+export function Button({ children, className, color = Color.Primary, startIcon, endIcon, ...props }: ButtonProps) {
     return (
         <ReactAriaButton
             {...props}

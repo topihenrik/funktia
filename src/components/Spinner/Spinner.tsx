@@ -1,5 +1,6 @@
 import { tv } from "tailwind-variants";
 import SpinnerIcon from "../../icons/spinner.svg";
+import { Color } from "../../constants";
 
 const wrapperStyle = tv({
     base: ["h-6 w-6"]
@@ -12,7 +13,7 @@ const svgStyle = tv({
             secondary: "stroke-blue-800",
             success: "stroke-white",
             warning: "stroke-white",
-            error: "stroke-white"
+            danger: "stroke-white"
         }
     }
 });
@@ -25,7 +26,7 @@ interface SpinnerProps {
     /**
      * Dictates the color scheme of the element.
      */
-    color?: "primary" | "secondary" | "success" | "warning" | "error";
+    color?: Color;
 }
 
 export function Spinner({ color }: SpinnerProps) {

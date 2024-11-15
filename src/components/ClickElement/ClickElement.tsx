@@ -13,14 +13,6 @@ const clickElementStyle = tv({
     base: ["flex gap-4 p-2"]
 });
 
-// interface ClickElementProps {
-//     variant?: "a" | "button";
-//     className?: string;
-//     children?: ReactNode | string;
-//     icon?: keyof typeof icons;
-//     href?: string;
-// }
-
 interface ClickElementBaseProps {
     className?: string;
     children?: ReactNode | string;

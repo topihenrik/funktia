@@ -1,14 +1,15 @@
 import { Icon } from "../components";
+import { Severity } from "../constants";
 
-export function getIcon(color: "info" | "success" | "warning" | "error") {
-    switch (color) {
+export function getIcon(severity: Severity) {
+    switch (severity) {
         case "info":
             return <Icon name="Info" />;
         case "success":
             return <Icon name="CircleCheck" />;
         case "warning":
             return <Icon name="TriangleAlert" />;
-        case "error":
+        case "danger":
             return <Icon name="CircleAlert" />;
         default:
             return null;

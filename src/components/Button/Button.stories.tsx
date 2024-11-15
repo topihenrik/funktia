@@ -29,7 +29,7 @@ export const Colors: Story = {
                 <Button color="secondary">Secondary</Button>
                 <Button color="success">Success</Button>
                 <Button color="warning">Warning</Button>
-                <Button color="error">Error</Button>
+                <Button color="danger">Danger</Button>
             </div>
         );
     }
@@ -74,13 +74,13 @@ export const Icons: Story = {
                 <Button color="warning" startIcon="TriangleAlert" endIcon="ChevronRight">
                     Button
                 </Button>
-                <Button color="error" startIcon="CircleAlert">
+                <Button color="danger" startIcon="CircleAlert">
                     Button
                 </Button>
-                <Button color="error" endIcon="ChevronRight">
+                <Button color="danger" endIcon="ChevronRight">
                     Button
                 </Button>
-                <Button color="error" startIcon="CircleAlert" endIcon="ChevronRight">
+                <Button color="danger" startIcon="CircleAlert" endIcon="ChevronRight">
                     Button
                 </Button>
             </div>
@@ -104,7 +104,7 @@ export const Disabled: Story = {
                 <Button color="warning" isDisabled={true}>
                     Warning
                 </Button>
-                <Button color="error" isDisabled={true}>
+                <Button color="danger" isDisabled={true}>
                     Error
                 </Button>
             </div>
@@ -133,7 +133,7 @@ export const Loading: Story = {
                         <Button color="warning" isPending={true}>
                             Button
                         </Button>
-                        <Button color="error" isPending={true}>
+                        <Button color="danger" isPending={true}>
                             Button
                         </Button>
                     </div>
@@ -155,7 +155,7 @@ export const Loading: Story = {
                         <Button color="warning" isPending={true} startIcon="KeyRound" endIcon="ChevronRight">
                             Button
                         </Button>
-                        <Button color="error" isPending={true} startIcon="KeyRound" endIcon="ChevronRight">
+                        <Button color="danger" isPending={true} startIcon="KeyRound" endIcon="ChevronRight">
                             Button
                         </Button>
                     </div>

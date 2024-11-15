@@ -30,7 +30,13 @@ export interface SideNavItem {
 }
 
 interface SideNavProps {
+    /**
+     * Title of the component
+     */
     title: string;
+    /**
+     * Side navigation items
+     */
     items: SideNavItem[];
 }
 

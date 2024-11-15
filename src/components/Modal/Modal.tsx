@@ -6,6 +6,7 @@ import {
     ModalOverlay as ReactAriaModalOverlay,
     ModalOverlayProps
 } from "react-aria-components";
+import { Size } from "../../constants";
 
 const overlayStyle = tv({
     base: [
@@ -22,13 +23,18 @@ const overlayStyle = tv({
 });
 
 const modalStyle = tv({
-    base: ["w-full max-w-md max-h-full bg-white text-left align-middle shadow-2xl"],
+    base: ["max-h-fit bg-white text-left align-middle shadow-2xl"],
     variants: {
         isEntering: {
             true: "animate-in zoom-in-105 ease-out duration-200"
         },
         isExiting: {
             true: "animate-out zoom-out-95 ease-in duration-200"
+        },
+        size: {
+            sm: "w-[28rem]",
+            md: "w-[36rem]",
+            lg: "w-[44rem]"
         }
     }
 });
@@ -54,9 +60,13 @@ interface ModalProps extends ModalOverlayProps {
      * Handler that is called when the overlay's open state changes.
      */
     onChange?: ((value: boolean) => void) | undefined;
+    /**
+     * Size of the modal
+     */
+    size?: Size;
 }
 
-export function Modal({ children, ...props }: ModalProps) {
+export function Modal({ children, size = "sm", ...props }: ModalProps) {
     const onOpenChange = (nextValue: boolean) => {
         if (props.onChange) props.onChange(nextValue);
     };
@@ -69,7 +79,7 @@ export function Modal({ children, ...props }: ModalProps) {
             onOpenChange={onOpenChange}
             className={overlayStyle}
         >
-            <ReactAriaModal className={modalStyle}>
+            <ReactAriaModal className={modalStyle({ size })}>
                 <ReactAriaDialog>
                     <div className={dialogBoxStyles()}>{children}</div>
                 </ReactAriaDialog>
