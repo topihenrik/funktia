@@ -10,7 +10,7 @@ import { Size } from "../../constants";
 
 const overlayStyle = tv({
     base: [
-        "fixed top-0 left-0 w-full h-[--visual-viewport-height] isolate z-20 bg-black/[15%] flex items-center justify-center p-4 text-center backdrop-blur-sm"
+        "overflow-auto fixed top-0 left-0 w-full h-[--visual-viewport-height] isolate z-20 bg-black/[15%] flex items-center justify-center p-4 text-center backdrop-blur-sm"
     ],
     variants: {
         isEntering: {
