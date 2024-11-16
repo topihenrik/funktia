@@ -34,7 +34,7 @@ const tabPanelStyle = tv({
     base: "mt-2"
 });
 
-interface TabItem {
+export interface TabItem {
     id: string;
     title: string;
     panel: ReactNode;
@@ -53,13 +53,13 @@ export function Tabs({ items, ...props }: TabsProps) {
         <ReactAriaTabs className={tabsStyle}>
             <ReactAriaTabList className={tabListStyle} aria-label={props["aria-label"]}>
                 {items.map(({ id, title }) => (
-                    <ReactAriaTab className={tabStyle} id={id}>
+                    <ReactAriaTab className={tabStyle} id={id} key={`tabs--tab-${id}`}>
                         {title}
                     </ReactAriaTab>
                 ))}
             </ReactAriaTabList>
             {items.map(({ id, panel }) => (
-                <ReactAriaTabPanel className={tabPanelStyle} id={id}>
+                <ReactAriaTabPanel className={tabPanelStyle} id={id} key={`tabs--panel-${id}`}>
                     {panel}
                 </ReactAriaTabPanel>
             ))}
