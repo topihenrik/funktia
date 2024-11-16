@@ -42,10 +42,10 @@ interface SideNavProps {
     /**
      * Callback for navigation
      */
-    navigationCallback: (to: string) => void;
+    navigate: (to: string) => void;
 }
 
-export function SideNav({ title, navigationCallback, items }: SideNavProps) {
+export function SideNav({ title, navigate, items }: SideNavProps) {
     const sidNavItems: BaseSideNavItem[] = useMemo(
         () =>
             items.map((item) => ({
@@ -65,7 +65,7 @@ export function SideNav({ title, navigationCallback, items }: SideNavProps) {
                             <ClickElement
                                 className={clickElementStyle({ isActive: item.isActive })}
                                 variant="link"
-                                onPress={() => navigationCallback(item.route)}
+                                onPress={() => navigate(item.route)}
                                 icon={item.icon}
                             >
                                 {item.text}
