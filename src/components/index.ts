@@ -1,6 +1,7 @@
 export * from "./Avatar";
 export * from "./Button";
 export * from "./ClickElement";
+export * from "./DatePicker";
 export * from "./Divider";
 export * from "./Heading";
 export * from "./Icon";

@@ -19,7 +19,7 @@ const textFieldStyle = tv({
 });
 
 const textAreaStyle = tv({
-    base: ["flex flex-col grow border-2 border-gray-500 rounded-md p-2 text-black resize-none"],
+    base: ["flex flex-col grow border-2 border-gray-800 rounded-md p-2 text-black resize-none"],
     variants: {
         isDisabled: {
             true: "border-gray-500 text-gray-500 hover:border-gray-500 cursor-not-allowed"

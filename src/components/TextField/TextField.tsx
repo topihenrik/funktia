@@ -18,7 +18,7 @@ const textFieldStyle = tv({
 
 const textInputStyle = tv({
     base: [
-        "min-w-36 flex grow border-2 border-gray-500 rounded-md p-2 text-black",
+        "min-w-36 flex grow border-2 border-gray-800 rounded-md p-2 text-black",
         "data-[has-start-icon=true]:pl-10 data-[has-end-icon=true]:pr-10"
     ],
     variants: {
@@ -27,9 +27,6 @@ const textInputStyle = tv({
         },
         isFocused: {
             true: "outline-blue-600"
-        },
-        isHovered: {
-            true: "border-gray-950"
         },
         isInvalid: {
             true: "border-red-600"

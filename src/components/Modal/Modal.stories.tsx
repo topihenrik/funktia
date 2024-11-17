@@ -35,7 +35,7 @@ function ModalExampleContent({ setOpen }: ModalExampleContentProps) {
                 <Button onPress={() => setOpen(false)} color="secondary">
                     Cancel
                 </Button>
-                <Button onPress={() => setOpen(false)} color="error">
+                <Button onPress={() => setOpen(false)} color="danger">
                     Delete
                 </Button>
             </div>
