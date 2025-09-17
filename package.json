@@ -75,6 +75,7 @@
     },
     "release": {
         "branches": ["main"],
+        "repositoryUrl": "https://github.com/topihenrik/funktia.git",
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
