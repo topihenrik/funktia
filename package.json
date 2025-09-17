@@ -10,6 +10,7 @@
     "scripts": {
         "dev": "vite",
         "build": "rollup -c",
+        "semantic-release": "semantic-release",
         "lint": "eslint .",
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
@@ -52,6 +53,7 @@
         "rollup-plugin-peer-deps-external": "2.2.4",
         "rollup-plugin-postcss": "4.0.2",
         "rollup-plugin-typescript2": "0.36.0",
+        "semantic-release": "^24.2.8",
         "storybook": "8.4.4",
         "tailwind-variants": "0.3.0",
         "tailwindcss": "3.4.15",
@@ -69,6 +71,15 @@
     "eslintConfig": {
         "extends": [
             "plugin:storybook/recommended"
+        ]
+    },
+    "release": {
+        "branches": ["main"],
+        "repositoryUrl": "https://github.com/topihenrik/funktia.git",
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/npm"
         ]
     }
 }
