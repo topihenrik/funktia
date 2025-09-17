@@ -1,9 +1,15 @@
-name: Publish Package to npmjs
+name: Publish Package to NPM
 on:
-    release:
-        types: [published]
+    push:
+        branches:
+            - main
+permissions:
+    contents: write
+    issues: write
+    pull-requests: write
+
 jobs:
-    build:
+    release:
         runs-on: ubuntu-latest
         permissions:
             contents: read
@@ -14,8 +20,10 @@ jobs:
               with:
                   node-version: 18
                   registry-url: "https://registry.npmjs.org"
-            - run: npm install
+            - run: npm ci
             - run: npm run build
-            - run: npm publish --access public
+            - name: Release
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+              run: npm run semantic-release
