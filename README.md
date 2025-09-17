@@ -1,4 +1,4 @@
-# Funktia 🔧
+# Funktia ⚙️
 
 A React based component library utilising React Aria and Tailwind.
 
